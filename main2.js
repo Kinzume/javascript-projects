@@ -46,7 +46,7 @@ class Calculator{
 
         //https://www.w3schools.com/jsref/jsref_tostring_number.asp
         //https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/concatenating-strings-with-plus-operator
-        this.currentOperand=this.currentOperand.toString()+number.toString(); 
+        this.currentOperand=this.currentOperand.toString()+number.toString()
     }
     chooseOpr(operation){
         if (this.currentOperand==='')return
@@ -85,16 +85,18 @@ class Calculator{
         this.currentOperand=computation
         this.operation=undefined
         this.previousOperand=''
-
-
-    }
+    }   
     updateDisplay(){
         //https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/es6/create-strings-using-template-literals
         this.lower.innerText=this.currentOperand
-        if (this.operation!=undefined){
+        this.upper.innerText=this.previousOperand
+        /**/
+        if (this.operation!=null){
             this.upper.innerText=`${this.previousOperand} ${this.operation}`
         }
-        
+        else{
+            this.previousOperand.innerText=''
+        }
 
     }
 }
