@@ -1,23 +1,58 @@
-#display{
-    background-color: rgba(173, 173, 173, 0.253);
-    width:30rem;
-    height:10rem;
-    margin:0 0 5rem 0;
-    font-size: 5em;
+/*https: //www.w3schools.com/cssref/sel_before.asp
+https: //www.w3schools.com/csS/css3_box-sizing.asp*/
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
+
+*,*::before,*::after{
+    box-sizing: border-box;
+    font-family: 'Chakra Petch',
+    sans-serif;
+    font-weight: normal;
 }
-#displayTop{
-    background-color: chartreuse;
-    width:100%;
-    height: 2.5rem;
-    font-size:0.5em;
+/*https: //www.w3schools.com/csSref/func_linear-gradient.asp*/
+body{
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, red, blue);
+}
+#calculator{
+    /*https: //www.youtube.com/watch?v=WeUEqZQ7ADU&ab_channel=KevinPowell*/
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
 }
 .btn{
-    width:2em;
-    height:2em;
-    font-size:5rem;
+    /*https: //www.w3schools.com/css/css_outline.asp*/
+    cursor: pointer;
+    font-size:2rem;
+    border:1px solid white;
+    outline:none;
+    background-color: rgba(255,255,255,0.75);
 }
-#numpad{
-    display: grid;
-    grid-template-columns: repeat(4, 11em);
-    grid-template-rows: repeat(4, 11em);
+.btn:hover{
+    background-color: rgba(255, 255, 255, 0.9);
+}
+.span-two{
+    /*https: //www.w3schools.com/CSSref/pr_grid-column.asp*/
+    grid-column: span 2;
+}
+#display{
+    grid-column: 1/-1;
+    background-color: blueviolet;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-around;
+    flex-direction: column;
+    word-wrap:break-word;
+    word-break: break-all;
+}
+#displayTop{
+    color:rgba(0, 0, 0, 0.75);
+    font-size: 1.5rem;
+}
+#displayBot {
+    color: black;
+    font-size: 2.5rem;
 }
