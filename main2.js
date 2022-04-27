@@ -86,16 +86,37 @@ class Calculator{
         this.operation=undefined
         this.previousOperand=''
     }   
-    updateDisplay(){
-        //https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/es6/create-strings-using-template-literals
-        this.lower.innerText=this.currentOperand
-        this.upper.innerText=this.previousOperand
-        /**/
-        if (this.operation!=null){
-            this.upper.innerText=`${this.previousOperand} ${this.operation}`
+    getDisplayNumber(number){
+        //https://www.w3schools.com/jsref/jsref_tolocalestring_number.asp
+        //
+        const stringNumber=number.toString()
+        const integerDigits=parseFloat(stringNumber.split('.')[0])
+        const decimalDigits=stringNumber.split('.')[1]
+        let integerDisplay
+        if (isNaN(integerDigits)){
+            integerDisplay=''
         }
         else{
-            this.previousOperand.innerText=''
+            integerDisplay=integerDigits.toLocaleString('en',{
+                maximumFractionDigits:0
+            })
+        }
+        if(decimalDigits!=null){
+            return `${integerDisplay}.${decimalDigits}`
+        }
+        else{
+            return integerDisplay
+        }
+    }
+    updateDisplay(){
+        //https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/es6/create-strings-using-template-literals
+        this.lower.innerText=this.getDisplayNumber(this.currentOperand)
+        /**/
+        if (this.operation!=null){
+            this.upper.innerText=`${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
+        }
+        else{
+            this.upper.innerText=''
         }
 
     }
