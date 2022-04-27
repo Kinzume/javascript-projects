@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
+/*Styling the home navigation button to be used on each app*/
+.nav-home{
+        font-family: 'Chakra Petch',
+        sans-serif;
+        font-size: 2rem;
+        text-decoration: none;
+        color:black;
+        background-color: aliceblue;
+        margin: 2em;
+}
